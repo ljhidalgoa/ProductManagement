@@ -37,7 +37,7 @@ public class Shop {
         Product p3 = new Product(103, "Cake", BigDecimal.valueOf(3.99), Rating.FIVE_STAR);
         Product p4 = new Product();
         Product p5 = p3.applyRating(Rating.THREE_STAR);
-//        p3 = p3.applyRating(Rating.THREE_STAR);
+        p3 = p3.applyRating(Rating.THREE_STAR);
 //        p1.setId(101);
 //        p1.setName("Tea");
 //        p1.setPrice(BigDecimal.valueOf(1.99));
