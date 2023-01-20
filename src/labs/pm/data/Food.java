@@ -41,9 +41,9 @@ public class Food extends Product {
         return bestBefore;
     }
 
-    
-//    public Food() {
-//        super();
-//    }
+    @Override
+    public String toString() {
+        return super.toString()+", "+bestBefore;
+    }
     
 }
