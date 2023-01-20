@@ -18,6 +18,7 @@ package labs.pm.data;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.util.Objects;
 import static labs.pm.data.Rating.*;
 
@@ -33,7 +34,7 @@ import static labs.pm.data.Rating.*;
  * @version 4.0
  * @author ljhidalgo
  */
-public class Product {
+public abstract class Product {
 
     /**
      * A constant that defines a {@link java.math.BigDecimal BigDecimal} value
@@ -99,13 +100,23 @@ public class Product {
         return rating;
     }
 
-    public Product applyRating(Rating newRating) {
-        return new Product(this.id, this.name, this.price, newRating);
+    public abstract Product applyRating(Rating newRating);
+//    {
+//        return new Product(this.id, this.name, this.price, newRating);
+//    }
+    
+    /**
+     * Get the value of teh best before date for the product
+     *
+     * @return the value of bestBefore
+     */
+    public LocalDate getBestBefore() {
+        return LocalDate.now();
     }
 
     @Override
     public String toString() {
-        return id+", "+name+", "+price+", "+getDiscount()+", "+rating.getStars();
+        return id+", "+name+", "+price+", "+getDiscount()+", "+rating.getStars()+", "+getBestBefore();
     }
 
     @Override
