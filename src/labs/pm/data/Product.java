@@ -34,7 +34,7 @@ import static labs.pm.data.Rating.*;
  * @version 4.0
  * @author ljhidalgo
  */
-public abstract class Product {
+public abstract class Product implements Rateable<Product> {
 
     /**
      * A constant that defines a {@link java.math.BigDecimal BigDecimal} value
@@ -59,9 +59,9 @@ public abstract class Product {
         this.rating = rating;
     }
 
-    Product(int id, String name, BigDecimal price) {
-        this(id, name, price, NOT_RATED);
-    }
+//    Product(int id, String name, BigDecimal price) {
+//        this(id, name, price, NOT_RATED);
+//    }
 
     public int getId() {
         return id;
@@ -96,11 +96,12 @@ public abstract class Product {
                 .setScale(2, RoundingMode.HALF_UP);
     }
 
+    @Override
     public Rating getRating() {
         return rating;
     }
 
-    public abstract Product applyRating(Rating newRating);
+//    public abstract Product applyRating(Rating newRating);
 //    {
 //        return new Product(this.id, this.name, this.price, newRating);
 //    }
