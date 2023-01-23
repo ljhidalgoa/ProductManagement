@@ -27,6 +27,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -120,6 +121,17 @@ public class ProductManager {
         }
         if (reviews.isEmpty()) {
             txt.append(formatter.getText("no.reviews"));
+            txt.append("\n");
+        }
+        System.out.println(txt);
+    }
+    
+    public void printProducts(Comparator<Product> sorter) {
+        List<Product> productList = new ArrayList<>(products.keySet());
+        productList.sort(sorter);
+        StringBuilder txt = new StringBuilder();
+        for(Product product : productList) {
+            txt.append(formatter.formatProduct(product));
             txt.append("\n");
         }
         System.out.println(txt);
